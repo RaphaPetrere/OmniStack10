@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const routes = require('./routes.js');
 
 const app = express();
@@ -10,9 +11,11 @@ mongoose.connect('mongodb+srv://omnistack:omnistack@cluster0-mbmrn.mongodb.net/w
     useUnifiedTopology : true,
 });
 
+app.use(cors()); // cors() libera o acesso externo pra todo tipo de aplicação
+// ou app.use(cors({ origin : 'http://localhost:3000' }));
+
 app.use(express.json()); //pro express entender requisições q o corpo tem formato JSON
 app.use(routes); //precisa vir dps do express.json, pq senão n le
-
 
 //MongoDB (não-relacional) -> ótimo pra aplicações q nao possuem mtos relacionamentos. Fica na nuvem, noice
 
@@ -23,3 +26,5 @@ app.use(routes); //precisa vir dps do express.json, pq senão n le
 //Route Params : exclusivamente nos métodos put e delete, vc informa qual usuário deletar e aonde /users/1 é o id 1    request.params
 //Body : request.body (Dados para criação ou alteração de um registro)
 app.listen(3333);
+
+//adicionando CORS, Cross Origin Resource Sharing

@@ -6,6 +6,7 @@ import './App.css';
 import './Sidebar.css';
 import './Main.css';
 
+// import DevForm from './components/DevForm';
 import DevForm from './components/DevForm';
 import DevItem from './components/DevItem';
 
@@ -35,11 +36,11 @@ function App() {
 
   return (
     <div id="app">
-      <aside> {/* TAG no HTML pra fazer side bar  */}
+      <aside> 
         <strong>Cadastrar</strong>
         <DevForm onSubmit={handleAddDev} />
       </aside>
-      <main> {/* é aonde vai ter a parte main do projeto */}
+      <main>
         <ul>
           {devs.map(dev => (
             <DevItem key={dev.id} dev={dev } /> //identificador de cada dev é o key.id
@@ -115,4 +116,6 @@ Esse aqui era o Header.js
 
 // export default Header;
 
+
+<aside> { TAG no HTML pra fazer side bar  }
 */

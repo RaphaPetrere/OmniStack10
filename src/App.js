@@ -43,7 +43,7 @@ function App() {
       <main>
         <ul>
           {devs.map(dev => (
-            <DevItem key={dev.id} dev={dev } /> //identificador de cada dev é o key.id
+            <DevItem key={dev.id} dev={dev} /> //identificador de cada dev é o key.id
           ))} {/* pra utilizar uma expressão JS, sempre abre e fecha chaves*/}
           
         </ul>
